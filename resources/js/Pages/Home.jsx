@@ -1,3 +1,5 @@
 export default function Home() {
-    return <p className="">Again this is a new project</p>
+    return (
+        <p className="h-dvh bg-green-100 text-center content-center font-bold">Home Page</p>
+    )
 }
