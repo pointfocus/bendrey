@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
     content: [
         "./resources/**/*.blade.php",
@@ -6,7 +7,11 @@ export default {
         "./resources/**/*.jsx",
     ],
     theme: {
-        extend: {},
+        extend: {
+            backgroundImage: {
+                mainBg: "url('/resources/images/bg.jpg')",
+            },
+        },
     },
     plugins: [],
 };

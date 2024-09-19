@@ -2,6 +2,8 @@ import "./bootstrap";
 import "../css/app.css";
 import { createInertiaApp } from "@inertiajs/react";
 import { createRoot } from "react-dom/client";
+import { ChakraProvider } from "@chakra-ui/react";
+import { LanguageProvider } from "../providers/LanguageContext";
 
 createInertiaApp({
     resolve: (name) => {
@@ -9,6 +11,12 @@ createInertiaApp({
         return pages[`./Pages/${name}.jsx`];
     },
     setup({ el, App, props }) {
-        createRoot(el).render(<App {...props} />);
+        createRoot(el).render(
+            <LanguageProvider>
+                <ChakraProvider>
+                    <App {...props} />
+                </ChakraProvider>
+            </LanguageProvider>
+        );
     },
 });

@@ -14,7 +14,6 @@ Route::get('/articles', function () {
 Route::get('/videos', function () {
     return inertia('Videos');
 });
-
 Route::get('/contact', function () {
     return inertia('Contact');
 });
