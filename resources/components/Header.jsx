@@ -3,6 +3,7 @@ import logoFinal from "../images/logoFinal.png"
 import bgTopCarousel from "../images/bgTopCarousel.png"
 import newBgLogo from "../images/newBgLogo.png"
 import { Button, Input, useDisclosure } from "@chakra-ui/react"
+import bgBoxHead1 from "../images/bgBoxHead1.png"
 import Geo from "./Geo"
 import { useLanguage } from "../providers/LanguageContext"
 import india from "../images/india.png"
@@ -21,7 +22,7 @@ import { HamburgerIcon } from "@chakra-ui/icons"
 
 
 
-export default function Header() {
+export default function Header({ title }) {
     const { language } = useLanguage();
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = useRef()
@@ -33,7 +34,7 @@ export default function Header() {
         <div className="">
             <div className="flex flex-grow justify-around min-h-[185px] bg-[url('../images/bgHeaderMobile.jpg')] sm:bg-[url('../images/bgHeader.png')] items-start sm:items-end">
                 {/* nav */}
-                <div className=" sm:gap-0 sm:flex w-[450px] justify-between sm:justify-between sm:w-[600px] lg:max-w-[1200px] lg:w-[1000px] xl:max-w-[1400px] xl:w-[1250px] lg:px-[50px]">
+                <div className=" sm:gap-0 sm:flex w-[450px] justify-between sm:justify-between sm:w-[600px] lg:max-w-[1200px] lg:w-[1000px] xl:max-w-[1400px] xl:w-[1250px] xl:px-[80px] lg:px-[50px]">
                     {/* logo */}
                     <div className="flex place-content-center pb-2">
                         <img className="hidden sm:flex w-[400px] min-w-[100px] md:min-w-[400px] object-contain" src={newBgLogo} />
@@ -59,7 +60,7 @@ export default function Header() {
                         {/* nav links */}
                         <div className="hidden lg:flex justify-between pb-[20px]">
                             <div className={navItem}>{language === 'en' ? "BOOKS" : "पुस्तके"}</div>
-                            <div className={navItem}>VASUDEO BENDREY</div>
+                            <div className={navItem}>V.S. BENDREY</div>
                             <div className={navItem}>CONTACT</div>
                         </div>
 
@@ -80,13 +81,13 @@ export default function Header() {
                                     <DrawerHeader bg="yellow.900" color="white">{language === "en" ? "Menu" : "मेनू"}</DrawerHeader>
                                     <DrawerBody color="white" bg="yellow.700">
                                         <Link href="/books">
-                                            <p className="pb-3">Books</p>
+                                            <p className={`my-2 ${navItem}`}>Books</p>
                                         </Link>
                                         <Link href="/">
-                                            <p className="pb-3">Vasudeo Bendrey</p>
+                                            <p className={`my-2 ${navItem}`}>VS Bendrey</p>
                                         </Link>
                                         <Link href="/contact">
-                                            <p>Contact</p>
+                                            <p className={`my-2 ${navItem}`}>Contact</p>
                                         </Link>
                                     </DrawerBody>
                                 </DrawerContent>
@@ -95,8 +96,14 @@ export default function Header() {
                         </div>
                     </div>
                 </div>
-                {/* bottom nav shelf */}
-                <div className="fixed flex-grow items-end self-end sm:pl-[560px] sm:pr-[100px]"><img className="hidden sm:block sm:-ml-[550px] sm:-mt-[11px] sm:max-w-[700px] -mb-[65px] lg:max-w-[995px] lg:-mb-[100px] xl:max-w-[1400px] xl:w-[1250px] xl:-mb-[150px] md:justify-center pl-20" src={bgTopCarousel} /></div>
+            </div>
+
+            {/* bottom nav shelf */}
+            <div className="flex z-[200] justify-center items-end self-end sm:pl-[560px] sm:pr-[100px]"><img className="z-[200] hidden -mt-[9px] sm:flex sm:-ml-[550px] sm:max-w-[700px] lg:max-w-[995px] xl:max-w-[1400px] xl:w-[1270px] md:justify-center pl-20" src={bgTopCarousel} />
+            </div>
+            <div className="flex justify-center mt-[5px] sm:-mt-[60px] lg:-mt-[85px] xl:-mt-[110px]">
+                <img src={bgBoxHead1} alt="banner" />
+                <h1 className="absolute mt-9 font-bold text-[32px] drop-shadow-xl">{title}</h1>
             </div>
         </div >
     )
