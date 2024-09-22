@@ -84,10 +84,7 @@ export default function Home() {
                     <img className="z-[99] min-h-[100px] -mt-[20px] sm:ml-[20px] sm:pr-[40px] sm:w-[700px] lg:w-[995px] xl:w-[1270px]" src={bgShelf} />
                 </div>
 
-                <div>
-                    <div className="flex ">
-
-                    </div>
+                <div className="-mb-[55px]">
                     <div className="flex justify-center">
                         <div className="xl:mx-2">
                             <div className="flex justify-center md:justify-around ">

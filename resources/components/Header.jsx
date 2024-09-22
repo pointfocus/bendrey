@@ -39,7 +39,7 @@ export default function Header({ title }) {
                     <div className="flex place-content-center pb-2">
                         <img className="hidden sm:flex w-[400px] min-w-[100px] md:min-w-[400px] object-contain" src={newBgLogo} />
 
-                        <Link href="#" className="pt-2 sm:pt-0 sm:self-end z-102 absolute md:pl-2 max-w-[200px] sm:max-w-[400px]">
+                        <Link href="/" className="pt-2 sm:pt-0 sm:self-end z-102 absolute md:pl-2 max-w-[200px] sm:max-w-[400px]">
                             <img src={logoFinal} />
                         </Link>
 
@@ -59,9 +59,9 @@ export default function Header({ title }) {
 
                         {/* nav links */}
                         <div className="hidden lg:flex justify-between pb-[20px]">
-                            <div className={navItem}>{language === 'en' ? "BOOKS" : "पुस्तके"}</div>
-                            <div className={navItem}>V.S. BENDREY</div>
-                            <div className={navItem}>CONTACT</div>
+                            <Link href="/books" className={navItem}>{language === 'en' ? "BOOKS" : "पुस्तके"}</Link>
+                            <Link className={navItem}>{language === 'en' ? "VS BENDREY" : "Bendrey"}</Link>
+                            <div className={navItem}>{language === 'en' ? "CONTACT" : "संपर्क"}</div>
                         </div>
 
                         {/* drawer nav */}
@@ -81,13 +81,13 @@ export default function Header({ title }) {
                                     <DrawerHeader bg="yellow.900" color="white">{language === "en" ? "Menu" : "मेनू"}</DrawerHeader>
                                     <DrawerBody color="white" bg="yellow.700">
                                         <Link href="/books">
-                                            <p className={`my-2 ${navItem}`}>Books</p>
+                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "BOOKS" : "पुस्तके"}</p>
                                         </Link>
                                         <Link href="/">
-                                            <p className={`my-2 ${navItem}`}>VS Bendrey</p>
+                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "VS BENDREY" : "Bendrey"}</p>
                                         </Link>
                                         <Link href="/contact">
-                                            <p className={`my-2 ${navItem}`}>Contact</p>
+                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "CONTACT" : "संपर्क"}</p>
                                         </Link>
                                     </DrawerBody>
                                 </DrawerContent>
