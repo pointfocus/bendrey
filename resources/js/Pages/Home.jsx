@@ -8,6 +8,8 @@ import bgBottomBanner from "../../images/bgBottomBanner.png"
 import Footer from "../../components/Footer"
 import VSB from "../../images/VSB.mp4"
 import bendreyLogo from "../../images/bendreyLogoFinal.png"
+import { Head } from "@inertiajs/react"
+import bpFavicon from "../../images/bpFavicon.png"
 
 export default function Home() {
 
@@ -30,6 +32,12 @@ export default function Home() {
 
     return (
         <>
+            <Head>
+                <title>{language === 'en' ? "Bendrey" : "बेंद्रे"}</title>
+                <meta head-key="description" name="description" content="Bendrey" />
+                <meta name="keywords" content="Vasudeo Sitaram Bendrey books historian author india marathi" />
+                <link rel="icon" href={bpFavicon} />
+            </Head>
             <div className="bg-mainBg min-h-screen min-w-full">
                 {/* header */}
                 <Header title={title} />

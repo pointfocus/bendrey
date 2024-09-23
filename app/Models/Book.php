@@ -27,6 +27,7 @@ class Book extends Model
         "price",
         "popular",
         "image",
+        "keywords"
     ];
 
     public function category(): BelongsTo

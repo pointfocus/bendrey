@@ -7,6 +7,7 @@ import useWindowWidth from "../../components/UseWindowWidth";
 import VSB from "../../images/VSB.mp4"
 import bendreyLogo from "../../images/bendreyLogoFinal.png"
 import bgBottomBanner from "../../images/bgBottomBanner.png"
+import { Head } from "@inertiajs/react";
 
 
 
@@ -35,34 +36,37 @@ export default function Books() {
     const shelves = Math.ceil(books.length / booksPerShelf);
 
     return (
-        <div className="flex flex-col justify-between bg-mainBg min-h-screen min-w-full">
-            <Header title={title} />
-            <div>
-                {Array.from({ length: shelves }, (_, shelfIndex) => (
-                    <Shelf
-                        key={shelfIndex}
-                        books={books.slice(shelfIndex * booksPerShelf, (shelfIndex + 1) * booksPerShelf)}
-                    />
-                ))}
-            </div>
+        <>
+            <Head title={language === "en" ? "Bendrey-Books" : "बेंद्रे-बुक्स"} />
+            <div className="flex flex-col justify-between bg-mainBg min-h-screen min-w-full">
+                <Header title={title} />
+                <div>
+                    {Array.from({ length: shelves }, (_, shelfIndex) => (
+                        <Shelf
+                            key={shelfIndex}
+                            books={books.slice(shelfIndex * booksPerShelf, (shelfIndex + 1) * booksPerShelf)}
+                        />
+                    ))}
+                </div>
 
-            <div className="-mb-[55px] z-[200]">
-                <div className="flex justify-center">
-                    <div className="xl:mx-2">
-                        <div className="flex justify-center md:justify-around ">
-                            <video className="hidden md:flex z-[100] w-[457px] h-[177px] xl:mt-8" autoPlay="false" loop="true">
-                                <source src={VSB} type="video/mp4" />
-                            </video>
-                            <div className="z-[100] mb-[10px] w-[200px] place-content-end mr-24">
-                                <img className="pb-[10px]" src={bendreyLogo} alt="Bendrey Logo" />
+                <div className="-mb-[55px] z-[200]">
+                    <div className="flex justify-center">
+                        <div className="xl:mx-2">
+                            <div className="flex justify-center md:justify-around ">
+                                <video className="hidden md:flex z-[100] w-[457px] h-[177px] xl:mt-8" autoPlay="false" loop="true">
+                                    <source src={VSB} type="video/mp4" />
+                                </video>
+                                <div className="z-[100] mb-[10px] w-[200px] place-content-end mr-24">
+                                    <img className="pb-[10px]" src={bendreyLogo} alt="Bendrey Logo" />
+                                </div>
                             </div>
+                            <img className="md:flex min-h-[100px] -mt-[90px] sm:ml-[20px] sm:pr-[40px] sm:w-[700px] lg:w-[995px] xl:w-[1270px]" src={bgBottomBanner} />
                         </div>
-                        <img className="md:flex min-h-[100px] -mt-[90px] sm:ml-[20px] sm:pr-[40px] sm:w-[700px] lg:w-[995px] xl:w-[1270px]" src={bgBottomBanner} />
                     </div>
                 </div>
-            </div>
 
-            <Footer />
-        </div>
+                <Footer />
+            </div>
+        </>
     );
 }

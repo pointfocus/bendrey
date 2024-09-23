@@ -55,6 +55,8 @@ class BookResource extends Resource
                 ->numeric()
                 ->prefix('$')
                 ->maxValue(999),
+                TextInput::make('keywords')
+                ->required(),
                 FileUpload::make("image")
                 ->image()
                 ->imageEditor()
@@ -82,6 +84,8 @@ class BookResource extends Resource
                 ->limit(30)
                 ->label("Description(Marathi)"),
                 TextColumn::make('category.title_en'),
+                TextColumn::make('keywords')
+                ->limit(20),
                 TextColumn::make('price')
                 ->prefix("$"),
                 TextColumn::make('link')

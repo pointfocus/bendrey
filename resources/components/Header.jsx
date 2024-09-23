@@ -12,7 +12,6 @@ import { useRef } from "react"
 import {
     Drawer,
     DrawerBody,
-    DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
@@ -60,8 +59,8 @@ export default function Header({ title }) {
                         {/* nav links */}
                         <div className="hidden lg:flex justify-between pb-[20px]">
                             <Link href="/books" className={navItem}>{language === 'en' ? "BOOKS" : "पुस्तके"}</Link>
-                            <Link className={navItem}>{language === 'en' ? "VS BENDREY" : "Bendrey"}</Link>
-                            <div className={navItem}>{language === 'en' ? "CONTACT" : "संपर्क"}</div>
+                            <Link className={navItem}>{language === 'en' ? "VS BENDREY" : "वासुदेव सीताराम बेंद्रे"}</Link>
+                            <Link href="/contact" className={navItem}>{language === 'en' ? "CONTACT" : "संपर्क"}</Link>
                         </div>
 
                         {/* drawer nav */}
@@ -84,7 +83,7 @@ export default function Header({ title }) {
                                             <p className={`my-2 ${navItem}`}>{language === 'en' ? "BOOKS" : "पुस्तके"}</p>
                                         </Link>
                                         <Link href="/">
-                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "VS BENDREY" : "Bendrey"}</p>
+                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "VS BENDREY" : "वासुदेव सीताराम बेंद्रे"}</p>
                                         </Link>
                                         <Link href="/contact">
                                             <p className={`my-2 ${navItem}`}>{language === 'en' ? "CONTACT" : "संपर्क"}</p>
