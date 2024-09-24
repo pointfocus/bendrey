@@ -3,6 +3,8 @@ import logoFinal from "../images/logoFinal.png"
 import bgTopCarousel from "../images/bgTopCarousel.png"
 import newBgLogo from "../images/newBgLogo.png"
 import { Button, Input, useDisclosure } from "@chakra-ui/react"
+import { usePage } from "@inertiajs/react"
+import bgH1 from "../images/bgH1.png"
 import bgBoxHead1 from "../images/bgBoxHead1.png"
 import Geo from "./Geo"
 import { useLanguage } from "../providers/LanguageContext"
@@ -16,15 +18,22 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
 } from '@chakra-ui/react'
+
 import { HamburgerIcon } from "@chakra-ui/icons"
 
 
 
 export default function Header({ title }) {
     const { language } = useLanguage();
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const btnRef = useRef()
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { url } = usePage();
+    const btnRef = useRef();
+    const isBookPath = /^\/books\/\d+$/;
 
     const navItem =
         "font-['Oswald', sans-serif] font-medium text-base leading-[30px] text-[#D0BA9D] drop-shadow lg:px-2 xl:px-4 hover:text-white"
@@ -59,7 +68,25 @@ export default function Header({ title }) {
                         {/* nav links */}
                         <div className="hidden lg:flex justify-between pb-[20px]">
                             <Link href="/books" className={navItem}>{language === 'en' ? "BOOKS" : "पुस्तके"}</Link>
-                            <Link className={navItem}>{language === 'en' ? "VS BENDREY" : "वासुदेव सीताराम बेंद्रे"}</Link>
+                            <div className="flex z-[201]">
+                                <Menu className="flex justify-center">
+                                    <MenuButton className={`text-center ${navItem}`}>{language === 'en' ? "BENDREY" : "वासुदेव सीताराम बेंद्रे"}</MenuButton>
+                                    <MenuList bg="black" color="#D0BA9D" border={0} borderRadius={0} fontFamily="['Oswald', sans-serif]">
+                                        <MenuItem as='a' href='/vsbendrey' bg="black" className="hover:text-white font-bold">
+                                            {language === 'en' ? "VS Bendrey" : "वासुदेव सीताराम बेंद्रे"}
+                                        </MenuItem>
+                                        <MenuItem as='a' href='/articles' bg="black" className="hover:text-white font-bold">
+                                            {language === 'en' ? "Articles" : "लेख[संपादन]"}
+                                        </MenuItem>
+                                        <MenuItem as='a' href='/images' bg="black" className="hover:text-white font-bold">
+                                            {language === 'en' ? "Images" : "प्रतिमा"}
+                                        </MenuItem>
+                                        <MenuItem as='a' href='/videos' bg="black" className="hover:text-white font-bold">
+                                            {language === 'en' ? "Videos" : "व्हिडिओ"}
+                                        </MenuItem>
+                                    </MenuList>
+                                </Menu>
+                            </div>
                             <Link href="/contact" className={navItem}>{language === 'en' ? "CONTACT" : "संपर्क"}</Link>
                         </div>
 
@@ -70,23 +97,32 @@ export default function Header({ title }) {
                             </Button>
                             <Drawer
                                 isOpen={isOpen}
-                                placement="right"
+                                placement="top"
                                 onClose={onClose}
                                 finalFocusRef={btnRef}
                             >
                                 <DrawerOverlay />
                                 <DrawerContent>
                                     <DrawerCloseButton color="white" />
-                                    <DrawerHeader bg="yellow.900" color="white">{language === "en" ? "Menu" : "मेनू"}</DrawerHeader>
-                                    <DrawerBody color="white" bg="yellow.700">
-                                        <Link href="/books">
-                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "BOOKS" : "पुस्तके"}</p>
+                                    <DrawerHeader bg="black" color="white">{language === "en" ? "Menu" : "मेनू"}</DrawerHeader>
+                                    <DrawerBody color="white" bg="black">
+                                        <Link href="/vsbendrey">
+                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "VS Bendrey" : "वासुदेव सीताराम बेंद्रे"}</p>
                                         </Link>
-                                        <Link href="/">
-                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "VS BENDREY" : "वासुदेव सीताराम बेंद्रे"}</p>
+                                        <Link href="/books">
+                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "Books" : "पुस्तके"}</p>
+                                        </Link>
+                                        <Link href="/articles">
+                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "Articles" : "लेख[संपादन]"}</p>
+                                        </Link>
+                                        <Link href="/images">
+                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "Images" : "प्रतिमा"}</p>
+                                        </Link>
+                                        <Link href="/videos">
+                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "Videos" : "व्हिडिओ"}</p>
                                         </Link>
                                         <Link href="/contact">
-                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "CONTACT" : "संपर्क"}</p>
+                                            <p className={`my-2 ${navItem}`}>{language === 'en' ? "Contact" : "संपर्क"}</p>
                                         </Link>
                                     </DrawerBody>
                                 </DrawerContent>
@@ -101,8 +137,18 @@ export default function Header({ title }) {
             <div className="flex z-[200] justify-center items-end self-end sm:pl-[560px] sm:pr-[100px]"><img className="z-[200] hidden -mt-[9px] sm:flex sm:-ml-[550px] sm:max-w-[700px] lg:max-w-[995px] xl:max-w-[1400px] xl:w-[1270px] md:justify-center pl-20" src={bgTopCarousel} />
             </div>
             <div className="flex justify-center mt-[5px] sm:-mt-[60px] lg:-mt-[85px] xl:-mt-[110px]">
-                <img src={bgBoxHead1} alt="banner" />
-                <h1 className="absolute mt-9 font-bold text-[32px] drop-shadow-xl">{title}</h1>
+                {isBookPath.test(url) ? (
+                    <div className="flex justify-center">
+                        <img src={bgH1} alt="banner" className="flex h-[100px] w-[500px] lg:w-[830px]" />
+                        <h1 className="absolute mt-9 font-bold text-[32px] drop-shadow-xl">{title}</h1>
+                    </div>
+                ) : (
+                    <div className="flex justify-center">
+                        <img src={bgBoxHead1} alt="banner" />
+                        <h1 className="absolute mt-9 font-bold text-[32px] drop-shadow-xl">{title}</h1>
+                    </div>
+                )}
+
             </div>
         </div >
     )

@@ -2,6 +2,7 @@ import { useLanguage } from "../../providers/LanguageContext";
 import HeadComponent from "../../components/HeadComponent";
 import Header from "../../components/header"
 import Footer from "../../components/Footer"
+import BottomShelf from "../../components/BottomShelf";
 
 export default function Book({ book }) {
     const { language } = useLanguage();

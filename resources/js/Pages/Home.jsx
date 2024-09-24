@@ -4,15 +4,11 @@ import bgShelf from "../../images/bgShelf.png"
 import { useLanguage } from "../../providers/LanguageContext"
 import bgBoxHead1 from "../../images/bgBoxHead1.png"
 import Book from "../../components/Book"
-import bgBottomBanner from "../../images/bgBottomBanner.png"
 import Footer from "../../components/Footer"
-import VSB from "../../images/VSB.mp4"
-import bendreyLogo from "../../images/bendreyLogoFinal.png"
 import { Head } from "@inertiajs/react"
 import bpFavicon from "../../images/bpFavicon.png"
 
 export default function Home() {
-
     const { language } = useLanguage();
     const title = language === 'en' ? 'Popular Books' : 'लोकप्रिय पुस्तके'
     const bookCount = {
@@ -33,7 +29,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>{language === 'en' ? "Bendrey" : "बेंद्रे"}</title>
+                <title>{language === 'en' ? "Bendrey-Home" : "बेंद्रे-घर"}</title>
                 <meta head-key="description" name="description" content="Bendrey" />
                 <meta name="keywords" content="Vasudeo Sitaram Bendrey books historian author india marathi" />
                 <link rel="icon" href={bpFavicon} />
@@ -90,22 +86,6 @@ export default function Home() {
                 {/* second middle shelf image */}
                 <div className="flex justify-center z-[99]">
                     <img className="z-[99] min-h-[100px] -mt-[20px] sm:ml-[20px] sm:pr-[40px] sm:w-[700px] lg:w-[995px] xl:w-[1270px]" src={bgShelf} />
-                </div>
-
-                <div className="-mb-[55px]">
-                    <div className="flex justify-center">
-                        <div className="xl:mx-2">
-                            <div className="flex justify-center md:justify-around ">
-                                <video className="hidden md:flex z-[100] w-[457px] h-[177px] xl:mt-8" autoPlay="false" loop="true">
-                                    <source src={VSB} type="video/mp4" />
-                                </video>
-                                <div className="z-[100] mb-[10px] w-[200px] place-content-end mr-24">
-                                    <img className="pb-[10px]" src={bendreyLogo} alt="Bendrey Logo" />
-                                </div>
-                            </div>
-                            <img className="md:flex min-h-[100px] -mt-[90px] sm:ml-[20px] sm:pr-[40px] sm:w-[700px] lg:w-[995px] xl:w-[1270px]" src={bgBottomBanner} />
-                        </div>
-                    </div>
                 </div>
 
                 {/* footer */}

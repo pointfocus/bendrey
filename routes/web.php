@@ -11,6 +11,12 @@ Route::resource('/books', BookController::class)->only(['index', 'show']);
 //     return inertia('Book', ['book' => $book]);
 // });
 
+Route::get('/vsbendrey', function () {
+    return inertia('Bendrey');
+});
+Route::get('/images', function () {
+    return inertia('Images');
+});
 Route::get('/articles', function () {
     return inertia('Articles');
 });
