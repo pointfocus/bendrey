@@ -10,6 +10,9 @@ export default {
         extend: {
             backgroundImage: {
                 mainBg: "url('/resources/images/bg.jpg')",
+                bookBg: "url('/resources/images/bgProduct.png')",
+                catBg: "url('/resources/images/bgLeftColumn.jpg')",
+                bookDescBg: "url('/resources/images/bgDownMenu.png')",
             },
         },
     },

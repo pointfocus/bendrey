@@ -8,7 +8,7 @@ export default function BottomShelf() {
             <div className="flex justify-center">
                 <div className="xl:mx-2">
                     <div className="flex justify-center md:justify-around ">
-                        <video className="hidden md:flex z-[100] w-[457px] h-[177px] xl:mt-8" autoPlay="false" loop="true">
+                        <video className="hidden md:flex z-[100] w-[457px] h-[177px] xl:mt-8" autoPlay={false} loop={true}>
                             <source src={VSB} type="video/mp4" />
                         </video>
                         <div className="z-[100] mb-[10px] w-[200px] place-content-end mr-24">

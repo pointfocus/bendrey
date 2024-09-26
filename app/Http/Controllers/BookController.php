@@ -37,6 +37,7 @@ class BookController extends Controller
      */
     public function show(Book $book)
     {
+        $book->bookImg = asset('storage/' . $book->image);
         return Inertia::render('Book', ['book' => $book]);
     }
 
