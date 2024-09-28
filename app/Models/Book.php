@@ -15,6 +15,11 @@ class Book extends Model
 
     protected $casts = [
         'popular' => 'boolean',
+        'in_stock' => 'boolean',
+        'new' => 'boolean',
+        'languages' => 'array',
+        'formats' => 'array',
+        'keywords' => 'array',
     ];
 
     protected $fillable = [
@@ -23,6 +28,12 @@ class Book extends Model
         "description_en",
         "description_ma",
         "category_id",
+        "pages",
+        "languages",
+        "in_stock",
+        "new",
+        "formats",
+        "publisher",
         "link",
         "price",
         "popular",
