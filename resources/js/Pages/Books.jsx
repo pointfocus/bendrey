@@ -35,7 +35,7 @@ export default function Books() {
 
     return (
         <>
-            <Head title={language === "en" ? "Bendrey-Books" : "बेंद्रे-बुक्स"} />
+            <Head title={language === "en" ? "Bendrey - Books" : "बेंद्रे - बुक्स"} />
             <div className="flex flex-col justify-between bg-mainBg min-h-screen min-w-full">
                 <Header title={title} />
                 <div>

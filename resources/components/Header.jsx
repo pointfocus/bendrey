@@ -50,7 +50,6 @@ export default function Header({ title }) {
                         <Link href="/" className="pt-2 sm:pt-0 sm:self-end z-102 absolute md:pl-2 max-w-[200px] sm:max-w-[400px]">
                             <img src={logoFinal} />
                         </Link>
-
                     </div>
 
                     {/* right navigation group */}

@@ -29,7 +29,7 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>{language === 'en' ? "Bendrey-Home" : "बेंद्रे-घर"}</title>
+                <title>{language === 'en' ? "Bendrey" : "बेंद्रे"}</title>
                 <meta head-key="description" name="description" content="Bendrey" />
                 <meta name="keywords" content="Vasudeo Sitaram Bendrey books historian author india marathi" />
                 <link rel="icon" href={bpFavicon} />

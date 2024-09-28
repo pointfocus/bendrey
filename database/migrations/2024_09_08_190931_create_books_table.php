@@ -22,6 +22,13 @@ return new class extends Migration
             $table->longText('link')->nullable();
             $table->string('image')->nullable();
             $table->foreignId('category_id');
+            $table->string('pages')->nullable();
+            $table->json('languages')->nullable();
+            $table->boolean('in_stock')->default(false);
+            $table->boolean('new')->default(false)->nullable();
+            $table->json('formats')->nullable();
+            $table->string('publisher')->nullable();
+            $table->json('keywords')->nullable();
             $table->timestamps();
         });
     }
