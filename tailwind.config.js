@@ -11,9 +11,10 @@ export default {
             backgroundImage: {
                 mainBg: "url('/resources/images/bg.jpg')",
                 bookBg: "url('/resources/images/bgProduct.png')",
-                catBg: "url('/resources/images/bgLeftColumn.jpg')",
+                catBg: "url('/resources/images/bgLeftColumnTop.jpg')",
                 bookDescBg: "url('/resources/images/bgDownMenu.png')",
             },
+            fontFamily: {},
         },
     },
     plugins: [],
