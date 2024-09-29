@@ -11,7 +11,7 @@ export default function BottomShelf() {
                         <video className="hidden md:flex z-[100] w-[457px] h-[177px] xl:mt-8" autoPlay={false} loop={true}>
                             <source src={VSB} type="video/mp4" />
                         </video>
-                        <div className="z-[100] mb-[10px] w-[200px] place-content-end mr-24">
+                        <div className="z-[100] mb-[10px] w-[200px] place-content-end sm:mr-24">
                             <img className="pb-[10px]" src={bendreyLogoFinal} alt="Bendrey Logo" />
                         </div>
                     </div>
