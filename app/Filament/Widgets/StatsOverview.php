@@ -15,9 +15,12 @@ class StatsOverview extends BaseWidget
     
     {
         $books = Book::all();
+        $bookCount = $books->count();
+        $lastAddedBook = $bookCount > 0 ? $books->last()->title_en : "No books added";
+        
         return [
-            Stat::make('Books', $books->count()),
-            Stat::make('Last Added Book', $books->last()->title_en),
+            Stat::make('Books', $bookCount),
+            Stat::make('Last Added Book', $lastAddedBook),
         ];
     }
 }

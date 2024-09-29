@@ -17,6 +17,8 @@ use App\Filament\Resources\BookResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\BookResource\RelationManagers;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
@@ -32,8 +34,14 @@ class BookResource extends Resource
     {
         return $form
             ->schema([ 
+                Grid::make()->columns(3)->schema([
+                Toggle::make('new')
+                ->columnSpan(1),
                 Toggle::make('popular')
-                ->columnSpanFull(),
+                ->columnSpan(1),
+                Toggle::make('in_stock')
+                ->columnSpan(1),
+                ])->columnSpanFull(),
                 TextInput::make("title_en")
                 ->label('Title (English)')
                 ->required(),
@@ -55,7 +63,26 @@ class BookResource extends Resource
                 ->numeric()
                 ->prefix('$')
                 ->maxValue(999),
-                TextInput::make('keywords')
+                Select::make('languages') 
+                ->label("Languages")
+                ->multiple()
+                ->required()
+                ->options([
+                    'English' => 'English',
+                    'Marathi' => 'Marathi',
+                ]),
+                Select::make('formats') 
+                ->label("Formats")
+                ->multiple()
+                ->required()
+                ->options([
+                    'Print' => 'Print',
+                    'E-book' => 'E-Book',
+                ]),
+                TextInput::make('publisher'),
+                TagsInput::make('keywords')
+                ->label('Keywords')
+                ->placeholder('Add keywords...')
                 ->required(),
                 FileUpload::make("image")
                 ->image()
@@ -68,7 +95,15 @@ class BookResource extends Resource
     {
         return $table
             ->columns([
+                IconColumn::make('new')
+                ->boolean()
+                ->trueIcon('heroicon-o-check')
+                ->falseIcon(""),
                 IconColumn::make('popular')
+                ->boolean()
+                ->trueIcon('heroicon-o-check')
+                ->falseIcon(""),
+                IconColumn::make('in_stock')
                 ->boolean()
                 ->trueIcon('heroicon-o-check')
                 ->falseIcon(""),
@@ -86,10 +121,18 @@ class BookResource extends Resource
                 TextColumn::make('category.title_en'),
                 TextColumn::make('keywords')
                 ->limit(20),
+                TextColumn::make('formats')
+                ->limit(20),
+                TextColumn::make('publisher')
+                ->limit(20),
                 TextColumn::make('price')
                 ->prefix("$"),
                 TextColumn::make('link')
                 ->limit(20),
+                TextColumn::make('pages')
+                ->limit(10),
+                TextColumn::make('languages')
+                ->limit(20)
             ])
             ->filters([
                 //
