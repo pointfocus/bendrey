@@ -80,7 +80,7 @@ export default function Carousel() {
         ]
     }
     return (
-        <div className="slider-container">
+        <div className="slider-container -mb-1">
             <Slider {...settings}>
                 <div className="sm:ml-9 ml-4"><Book /></div>
                 <div className="sm:ml-9 ml-4"><Book /></div>

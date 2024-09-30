@@ -11,7 +11,8 @@ import x from "../../images/x.png"
 
 export default function Contact() {
     const { language } = useLanguage();
-    const title = language === 'en' ? "Contact" : "संपर्क"
+    const headerTitle = language === 'en' ? "Contact" : "संपर्क";
+    const title = language === "en" ? "Bendrey - Contact" : "बेंद्रे - संपर्क";
     const description = "Bendrey Contact Page"
     const keywords = (
         "Bendrey, Contact, Twitter, Facebook, About Us"
@@ -21,7 +22,7 @@ export default function Contact() {
         <div>
             <HeadComponent title={title} description={description} keywords={keywords} />
             <div className="flex flex-col justify-between bg-mainBg min-h-screen min-w-full">
-                <Header title={title} />
+                <Header title={headerTitle} />
 
                 <div className="flex justify-center">
                     <div className="mb-4 xl:mt-40">

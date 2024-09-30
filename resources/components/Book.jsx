@@ -5,11 +5,9 @@ export default function () {
     return (
         <>
             <div className="w-[150px] md:w-[190px]">
-                <div style={{
-                    backgroundImage: `url(${bgProduct})`,
-                }} className="float-left">
+                <div className="flex float-left bg-bookBg bg-no-repeat">
                     <div>
-                        <img src={productOne} className="flex contain pt-1 pr-2" />
+                        <img src={productOne} className="flex contain pt-1 pr-2 mr-2" />
                     </div>
                 </div >
             </div>
