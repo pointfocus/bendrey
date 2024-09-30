@@ -42,16 +42,18 @@ export default function Book({ book }) {
                 <Header title={title} />
 
                 {/* description area */}
-                <div className="flex self-center justify-between w-[1170px]">
+                <div className="flex self-center justify-between lg:w-[970px] mx-2">
 
                     {/* category label */}
-                    <Categories />
+                    <div className="hidden md:flex">
+                        <Categories />
+                    </div>
 
                     {/* book information */}
-                    <div className="flex bg-bookDescBg w-[75%] border-t-[3px] border-[#6b2b11] justify-between">
+                    <div className="flex flex-col md:flex-row bg-bookDescBg lg:w-[75%] border-t-[3px] border-[#6b2b11] justify-between">
 
                         {/* left column */}
-                        <div className="flex flex-col w-[50%]">
+                        <div className="flex flex-col md:w-[50%]">
                             <div className="flex flex-row">
                                 <div className="ml-10 mt-4">
                                     {isNew === true ? <Badge color="white" variant="solid" colorScheme="green">{language === "en" ? "New" : "नवीन"}</Badge>
@@ -75,11 +77,20 @@ export default function Book({ book }) {
                                 }
                             </div>
                             {/* book image */}
-                            <div className="flex bg-bookBg m-10 bg-no-repeat">
-                                <img src={img} className="w-[142px] h-[211px] mt-1 mr-3" />
+                            <div className="flex mt-[70px] md:mt-0 justify-center md:justify-normal">
+                                <div className="flex bg-bookBg md:m-10 bg-no-repeat">
+                                    <img src={img} className="flex w-[142px] h-[211px] mt-1 mr-3" />
+                                </div>
                             </div>
                             {/* book information */}
-                            <div className="flex flex-col mx-10 mb-20 gap-1">
+                            <div className="my-20 mx-10 font-semibold">
+                                <p>{language === "en" ? book.description_en : book.description_ma}</p>
+
+                            </div>
+                        </div>
+                        {/* right column */}
+                        <div className="flex flex-col md:w-[50%] justify-center">
+                            <div className="flex flex-col mx-10 mb-20 gap-1 my-20">
                                 <div className="flex gap-2">
                                     <div className="flex font-bold">{language === "en" ? "Pages: " : "पृष्ठे: "}</div>
                                     {book.pages}
@@ -99,14 +110,7 @@ export default function Book({ book }) {
                                     {book.publisher}
                                 </div>
                             </div>
-                        </div>
-                        {/* right column */}
-                        <div className="flex flex-col w-[50%]">
-                            <div className="my-10">
-                                <p>{language === "en" ? book.description_en : book.description_ma}</p>
-
-                            </div>
-                            <div className="flex flex-col gap-1">
+                            <div className="flex justify-center flex-col gap-1 mx-10 mb-[50px]">
                                 <div className="flex text-red-900 font-bold">
                                     <a className="flex" href={book.link} target="_blank">
                                         {language === "en" ? "Purchase the book here" : "येथे पुस्तक खरेदी करा"}
@@ -114,13 +118,15 @@ export default function Book({ book }) {
                                 </div>
                                 <div className="flex font-bold">{language === "en" ? "Or" : "किंवा"}</div>
                                 <div className="flex">
-                                    <div className="flex font-bold text-red-900"><a href="mailto:bendreypublications@gmail.com">bendreypublications@gmail.com</a></div>
+                                    <div className="flex font-bold text-red-900"><a href="mailto:bendreypublications@gmail.com">Email Us</a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <Footer />
+                <div className="mt-20">
+                    <Footer />
+                </div>
             </div>
         </div >
     )
