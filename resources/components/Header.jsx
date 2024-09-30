@@ -34,6 +34,7 @@ export default function Header({ title }) {
     const { url } = usePage();
     const btnRef = useRef();
     const isBookPath = /^\/books\/\d+$/;
+    const isBendreyPath = /^\/vsbendrey$/;
 
     const navItem =
         "font-['Oswald', sans-serif] font-medium text-base leading-[30px] text-[#D0BA9D] drop-shadow lg:px-2 xl:px-4 hover:text-white"
@@ -136,7 +137,7 @@ export default function Header({ title }) {
             <div className="flex z-[200] justify-center items-end self-end sm:pl-[560px] sm:pr-[100px]"><img className="z-[200] hidden -mt-[9px] sm:flex sm:-ml-[550px] sm:max-w-[700px] lg:max-w-[995px] xl:max-w-[1400px] xl:w-[1270px] md:justify-center pl-20" src={bgTopCarousel} />
             </div>
             <div className="flex justify-center mt-[5px] sm:-mt-[60px] lg:-mt-[85px] xl:-mt-[110px]">
-                {isBookPath.test(url) ? (
+                {isBookPath.test(url) || isBendreyPath.test(url) ? (
                     <div className="flex justify-center">
                         <img src={bgH1} alt="banner" className="flex h-[100px] w-[500px] lg:w-[830px]" />
                         <h1 className="absolute mt-9 font-bold text-[32px] drop-shadow-xl">{title}</h1>

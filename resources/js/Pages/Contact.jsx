@@ -27,7 +27,9 @@ export default function Contact() {
                     <div className="mb-4 xl:mt-40">
                         <div className="flex justify-between mx-20 flex-col sm:flex-row gap-10 mt-10 mb-10 sm:mb-0 sm:gap-0">
                             <img src={instagram} className="flex z-[100] w-[100px] h-[100px] xl:h-[150px] xl:w-[150px]" />
-                            <img src={facebook} className="flex z-[100] w-[100px] h-[100px] xl:h-[150px] xl:w-[150px]" />
+                            <a href="https://www.facebook.com/V.S.Bendrey/" className="flex z-[100] w-[100px] h-[100px] xl:h-[150px] xl:w-[150px]">
+                                <img src={facebook} />
+                            </a>
                             <img src={x} className="flex z-[100] w-[100px] h-[100px] xl:w-[150px] xl:h-[150px]" />
                         </div>
 

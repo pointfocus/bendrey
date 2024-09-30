@@ -50,17 +50,17 @@ export default function Book({ book }) {
                     </div>
 
                     {/* book information */}
-                    <div className="flex flex-col md:flex-row bg-bookDescBg lg:w-[75%] border-t-[3px] border-[#6b2b11] justify-between">
+                    <div className="flex flex-col w-[400px] sm:w-[500px] md:flex-row bg-bookDescBg lg:w-[75%] border-t-[3px] border-[#6b2b11] md:justify-between">
 
                         {/* left column */}
                         <div className="flex flex-col md:w-[50%]">
-                            <div className="flex flex-row">
-                                <div className="ml-10 mt-4">
-                                    {isNew === true ? <Badge color="white" variant="solid" colorScheme="green">{language === "en" ? "New" : "नवीन"}</Badge>
-                                        :
-                                        ""
-                                    }
-                                </div>
+                            <div className="flex flex-row ml-10">
+                                {isNew === true ?
+                                    <div className="mx-2 mt-4">
+                                        <Badge color="white" variant="solid" colorScheme="green">{language === "en" ? "New" : "नवीन"}</Badge>
+                                    </div>
+                                    :
+                                    ""}
                                 {popular === true ?
                                     <div className="mx-2 mt-4">
                                         <Badge variant="solid" colorScheme="yellow">{language === "en" ? "Popular" : "लोकप्रिय"}</Badge>
@@ -69,7 +69,7 @@ export default function Book({ book }) {
                                     ""
                                 }
                                 {inStock === true ?
-                                    <div className="mt-4">
+                                    <div className="mx-2 mt-4">
                                         <Badge colorScheme="blackAlpha">{language === "en" ? "In-Stock" : "इन-स्टॉक"}</Badge>
                                     </div>
                                     :
@@ -90,7 +90,7 @@ export default function Book({ book }) {
                         </div>
                         {/* right column */}
                         <div className="flex flex-col md:w-[50%] justify-center">
-                            <div className="flex flex-col mx-10 mb-20 gap-1 my-20">
+                            <div className="flex flex-col mx-10 mb-20 gap-1">
                                 <div className="flex gap-2">
                                     <div className="flex font-bold">{language === "en" ? "Pages: " : "पृष्ठे: "}</div>
                                     {book.pages}
@@ -118,7 +118,7 @@ export default function Book({ book }) {
                                 </div>
                                 <div className="flex font-bold">{language === "en" ? "Or" : "किंवा"}</div>
                                 <div className="flex">
-                                    <div className="flex font-bold text-red-900"><a href="mailto:bendreypublications@gmail.com">Email Us</a></div>
+                                    <div className="flex font-bold text-red-900"><a href="mailto:bendreypublications@gmail.com">{language === "en" ? "Email Us" : "आम्हाला ईमेल करा"}</a></div>
                                 </div>
                             </div>
                         </div>

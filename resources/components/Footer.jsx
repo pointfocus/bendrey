@@ -8,10 +8,10 @@ export default function Footer() {
             <BottomShelf />
             <div className="flex bg-[#35281f] h-[90px] place-content-end items-center">
 
-                <div className="flex z-[200] justify-between mr-[50px] mt-10 mb-8">
+                {/* <div className="flex z-[200] justify-between mr-[50px] mt-10 mb-8">
                     <img className="max-h-[40px] mx-4" src={social1} alt="twitter logo" />
                     <img className="max-h-[40px]" src={social2} alt="facebook logo" />
-                </div>
+                </div> */}
             </div>
         </div>
     )
